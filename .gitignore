@@ -33,3 +33,9 @@
 
 # Mac related
 .DS_Store
+
+#CMake stuff
+cmake-build.debug/
+
+#CLion stuff
+.idea/
