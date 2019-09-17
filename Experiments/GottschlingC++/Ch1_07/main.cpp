@@ -7,6 +7,7 @@
 #include <sstream>
 #include <iomanip>
 #include <math.h>
+#include <string>
 
 //testing out inserter and extractor
 void area() {
@@ -74,6 +75,66 @@ void test_iomanip() {
     std::cout.precision(old_precision);
 }
 
+void test_errors() {
+
+    //try to open a file that doesn't exist
+    std::ifstream infile("idontexist.txt");
+
+    int i;
+    double d;
+
+    //try to read from the nonexistent file
+    infile >> i >> d;
+
+    std::cout << "i is " << i << " and d is " << d << std::endl;
+    infile.close();
+    
+}
+
+void robuster_iohandler(void) {
+    std::ifstream infile;
+    std::string filename{"some_missing_file.xyz"};
+
+    bool opened = false;
+
+    while (!opened) {
+        infile.open(filename); //try to open
+        if (infile.good()) {
+            opened = true;  //check error code and set bool
+        } else {
+            std::cout << "The file '" << filename << "' doesn't exist, give me a new file: ";
+            std::cin >> filename;
+        }
+    }
+
+    int i;
+    double d;
+
+    //get from the now opened file
+    infile >> i >> d;
+
+    if (infile.good()) {
+        std::cout << "i is " << i << ", d is " << d << '\n';
+    } else {
+        std::cout << "Could not correctly read the contents of the file." << std::endl;
+    }
+    infile.close();
+}
+
+void exception_enabled_io(void) {
+
+    //enable exceptions on standard streams
+    std::cin.exceptions(std::ios_base::badbit | std::ios_base::failbit);
+    std::cout.exceptions(std::ios_base::badbit | std::ios_base::failbit);
+
+    //a file that doesnt exist
+    std::ifstream infile("f.txt");
+
+    //exceptions only enabled after opening
+    infile.exceptions(std::ios_base::badbit | std::ios_base::failbit); //error is thrown now
+
+}
+
 int main() {
 
     //test I/O
@@ -86,7 +147,13 @@ int main() {
     //test_iomanip();
 
     //test I/O errors
-    
+    //test_errors();  //Notice: streams do NOT throw errors, we have to check error flags
+
+    //try a bit robuster
+    //robuster_iohandler();
+
+    //try with exceptions enabled
+    exception_enabled_io();
 
     return 0;
 }
