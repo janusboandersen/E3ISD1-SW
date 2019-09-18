@@ -1,5 +1,5 @@
 /*
- * E3ISD Week 35/1
+ * E3ISD1 Week 35/1
  * Simple input/output in C++
  * Janus Bo Andersen, 2019
  * */
