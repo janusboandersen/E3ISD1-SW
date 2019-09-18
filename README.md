@@ -11,3 +11,6 @@ The repo should use GoogleTest for most testing purposes. See e.g.
 
 ## Build System and IDE
 No particular build system or IDE is required; I will use CMake and CLion.
+
+### Various other useful links:
+* [Unit testing with CLion](https://www.jetbrains.com/help/clion/unit-testing-tutorial.html)
