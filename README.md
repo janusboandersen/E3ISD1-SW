@@ -6,8 +6,8 @@ This course focuses on C++ development in embedded Linux systems, using among ot
 
 ## Testing
 The repo should use GoogleTest for most testing purposes. See e.g.
-[GoogleTest Primer](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
-[GoogleTest Samples](https://github.com/google/googletest/blob/master/googletest/docs/samples.md)
+* [GoogleTest Primer](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
+* [GoogleTest Samples](https://github.com/google/googletest/blob/master/googletest/docs/samples.md)
 
 ## Build System and IDE
 No particular build system or IDE is required; I will use CMake and CLion.
