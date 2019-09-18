@@ -39,3 +39,6 @@
 
 #CLion stuff
 **/.idea/
+
+#GoogleTest stuff
+**/Google_test/
