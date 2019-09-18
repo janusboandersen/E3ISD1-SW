@@ -6,6 +6,7 @@ This course focuses on C++ development in embedded Linux systems, using among ot
 
 ## Testing
 The repo should use GoogleTest for most testing purposes. See e.g.
+* [GoogleTest Official Repo](https://github.com/google/googletest)
 * [GoogleTest Primer](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
 * [GoogleTest Samples](https://github.com/google/googletest/blob/master/googletest/docs/samples.md)
 
