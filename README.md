@@ -2,7 +2,7 @@
 The repo contains various code and experiments for the Software stream of E3ISD1 at AU Engineering.
 
 ## Purpose
-This course focuses on C++ development in embedded Linux systems, using among other the BeagleBone Pocket. No particular dialect is chosen, but I aim at modern C++, so using C++11/14/17.
+This course focuses on C++ development in embedded Linux systems, using among other the BeagleBone Pocket. No particular dialect is chosen, but I aim at modern C++, so using facilities from C++11/14/17.
 
 ## Testing
 The repo should use GoogleTest for most testing purposes. See e.g.
