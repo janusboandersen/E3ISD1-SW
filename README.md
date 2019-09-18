@@ -10,6 +10,7 @@ No particular build system or IDE is required; I will use CMake and CLion.
 ## Testing
 The repo should use Catch2 for most testing purposes. See e.g.
 * [Catch2 Github repo](https://github.com/catchorg/Catch2/)
+* [Single header file](https://raw.githubusercontent.com/catchorg/Catch2/master/single_include/catch2/catch.hpp)
 
 ### Various other useful links:
 * [Unit testing with CLion](https://www.jetbrains.com/help/clion/unit-testing-tutorial.html)
