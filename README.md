@@ -9,6 +9,8 @@ The repo should use GoogleTest for most testing purposes. See e.g.
 * [GoogleTest Official Repo](https://github.com/google/googletest)
 * [GoogleTest Primer](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
 * [GoogleTest Samples](https://github.com/google/googletest/blob/master/googletest/docs/samples.md)
+* [Incorporate into existing repo](https://github.com/google/googletest/tree/master/googletest#incorporating-into-an-existing-cmake-project)
+
 
 ## Build System and IDE
 No particular build system or IDE is required; I will use CMake and CLion.
