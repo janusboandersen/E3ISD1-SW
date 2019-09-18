@@ -15,14 +15,14 @@ int main(int argc, char* argv[]) {
     std::cout << "Program started with: " << argv[0] << " " << argv[1]
                 << " " << argv[2] << "..." << std::endl;
 
-    //convert char arrays to strings and store in a vector
+    //convert char arrays to strings using string's constructor, and store in a vector
     std::vector<std::string> args;
-    args.push_back( std::string(argv[1]) );
+    args.push_back( std::string(argv[1]) ); //probably some copying going on here...
     args.push_back( std::string(argv[2]) );
 
     Options myOptions; //make new options object
 
-    //check options using member function and string's constructor
+    //check options using the member function
     myOptions.checkOptions( args[0] ); //check the first argument
     myOptions.checkOptions( args[1] ); //check the second argument
 
