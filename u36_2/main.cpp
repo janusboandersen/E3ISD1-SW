@@ -5,6 +5,7 @@
  * */
 
 #include <iostream>
+#include <string>
 #include "Options.h"
 
 int main(int argc, char* argv[]) {
@@ -14,8 +15,8 @@ int main(int argc, char* argv[]) {
     Options myOptions(argc, argv); //create new Options object, passing the command line args, also parses them
     myOptions.setOptstring(optString); //set the allowed options in the object, also parses them
 
-    std::cout << "Number of options given in command line: " << myOptions.numopt() << std::endl;
-    std::cout << "Number of options given in command line: " << myOptions.valopt() << std::endl;
+    std::cout << "Number of GIVEN options in command line: " << myOptions.numopt() << std::endl;
+    std::cout << "Number of VALID options in command line: " << myOptions.valopt() << std::endl;
 
     //popping the options one by one...
     for (unsigned i = 0; i < myOptions.valopt(); ++i) {
