@@ -11,20 +11,27 @@
 
 int main(int argc, char* argv[]) {
 
-    //output what we received...
-    std::cout << "Program started with: " << argv[0] << " " << argv[1]
-                << " " << argv[2] << "..." << std::endl;
-
-    //convert char arrays to strings using string's constructor, and store in a vector
     std::vector<std::string> args;
-    args.push_back( std::string(argv[1]) ); //probably some copying going on here...
-    args.push_back( std::string(argv[2]) );
-
     Options myOptions; //make new options object
 
-    //check options using the member function
-    myOptions.checkOptions( args[0] ); //check the first argument
-    myOptions.checkOptions( args[1] ); //check the second argument
+    //output what we received... While converting to modern types... and checking options
+    if (argc > 1) {
+        std::cout << "Program started with: ";
+
+        //loop over any options, omit the executable
+        for (unsigned i = 1; i < argc; ++i) {
+            std::cout << argv[i] << " ";
+
+            //convert char arrays to strings using string's constructor, and store in a vector
+            args.push_back( std::string(argv[i]) ); //probably some copying going on here...
+
+            //check options using the member function
+            myOptions.checkOptions( args[i-1] ); //check the converted argument
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "Program started without options." << std::endl;
+    }
 
     //Output the results
     if (myOptions.optA) {

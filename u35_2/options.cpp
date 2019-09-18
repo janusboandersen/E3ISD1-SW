@@ -12,11 +12,8 @@ void Options::checkOptions(const std::string& optStr) {
     std::cout << optStr.compare("optionB") << std::endl;
     */
 
-    //Perform two string comparisons to determine which options are set
-    if (optStr.compare("optionA") == 0) {
-        optA = true;
-    }
-    if (optStr.compare("optionB") == 0) {
-        optB = true;
-    }
+    //Perform two string comparisons to determine which options are set, using overloaded operator==
+    if (optStr == "optionA") optA = true;
+    if (optStr == "optionB") optB = true;
+
 }
