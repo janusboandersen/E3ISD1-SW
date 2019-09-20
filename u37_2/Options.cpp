@@ -95,7 +95,7 @@ int Options::valopt() {
 //compares all data items for this and other: this==other
 bool Options::operator== (const Options& other) const {
 
-    //comparison list
+    //comparison list is very redundat, only first three needed... Others are then invariants.
     if (    this->argc == other.argc             // same command line argument length
          && this->argv == other.argv             // same command line argument mem location
          && this->optString == other.optString   // started with identical strings
