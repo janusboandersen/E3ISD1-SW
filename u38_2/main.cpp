@@ -25,6 +25,7 @@
  *
  * From previous weeks, the following has been refactored:
  *  - possible options are always set in vectors of strings, no longer in strings (similar behavior) among the two types.
+ *  - Derived objects referred to via base class pointers.
  *
  * Janus Bo Andersen, Sep 2019
  *
@@ -46,28 +47,22 @@ int main(int argc, char* argv[]) {
     OptionsKeywords myOptionsKeywords(argc, argv);
 
     // We can now access them via polymorphism
-    Options* opt1 = &myOptionsChars;
-    Options* opt2 = &myOptionsKeywords;
+    std::vector<Options*> opt(2); //vector holds two pointers to options objects
+    opt[0] = &myOptionsChars;
+    opt[1] = &myOptionsKeywords;
 
-    // DO WORK FOR CHAR STYLE OPTIONS
-    opt1->setOptPossible(optChars); //we are now working through an Options object pointer (base class)
+    // We are now working through an Options object pointer (base class)
+    opt[0]->setOptPossible(optChars);
+    opt[1]->setOptPossible(optKeywords);
 
-    std::cout << "Number of GIVEN CHAR options in command line: " << opt1->numopt() << std::endl;
-    std::cout << "Number of VALID CHAR options in command line: " << opt1->valopt() << std::endl;
+    // And we can work on all the objects in the same way, looping over them
+    for (auto o: opt) {
+        std::cout << o->valopt() << " out of " << o->numopt() << " command line args were valid." << std::endl;
 
-    for (int i = 0; i < opt1->valopt(); ++i) {
-        std::cout << "Option " << i << ": " << opt1->getopt() << std::endl;
-    }
-
-
-    // REPEAT FOR KEYWORD STYLE OPTIONS
-    opt2->setOptPossible(optKeywords);
-
-    std::cout << "Number of GIVEN KEYWORD options in command line: " << opt2->numopt() << std::endl;
-    std::cout << "Number of VALID KEYWORD options in command line: " << opt2->valopt() << std::endl;
-
-    for (int i = 0; i < opt2->valopt(); ++i) {
-        std::cout << "Option " << i << ": " << opt2->getopt() << std::endl;
+        // Display the options contained in the object, popped one by one
+        for (int i = 0; i < o->valopt(); ++i) {
+            std::cout << "Option set no. " << i << ": " << o->getopt() << std::endl;
+        }
     }
 
     return 0;
