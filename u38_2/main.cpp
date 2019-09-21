@@ -11,7 +11,7 @@
  * - To demonstrate polymorphism, we access the derived classes through pointers to a base class type.
  *
  * Exception handling
- * - Is implemented to handle the cases where no arguments are available.
+ * - Is implemented to handle the cases where no more options arguments are available to "getopt".
  *
  * Last week we made two subclasses to Options for managing different options types:
  *  - one class for single hyphen and character style ("-h") -> OptionsChars
@@ -33,6 +33,7 @@
 
 #include <iostream>
 #include <string>
+#include <stdexcept>
 #include "Options.h"
 #include "OptionsChars.h"
 #include "OptionsKeywords.h"
@@ -63,6 +64,14 @@ int main(int argc, char* argv[]) {
         for (int i = 0; i < o->valopt(); ++i) {
             std::cout << "Option set no. " << i << ": " << o->getopt() << std::endl;
         }
+    }
+
+    // To demo exception handling, try to get an option now that the objects are fully popped
+    try {
+        std::cout << opt[0]->getopt() << std::endl;  // should throw an error
+
+    } catch (std::runtime_error& e) {
+        std::cout << e.what() << std::endl; // Get error description
     }
 
     return 0;

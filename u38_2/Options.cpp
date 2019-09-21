@@ -5,6 +5,7 @@
 #include "Options.h"
 #include <regex>
 #include <algorithm>
+#include <stdexcept>
 
 //sets a vector that defines valid options, then calls the parser for valid options
 void Options::setOptPossible(std::vector<std::string> optPossible) {
@@ -40,7 +41,10 @@ std::string Options::getopt() {
     if (!optValid.empty()) {
         ret = optValid.back(); //take the last item
         optValid.pop_back(); //remove the item
+    } else {
+        throw std::runtime_error("** Runtime error: The options vector is empty. **"); // empty!
     }
+
     return ret;
 }
 
