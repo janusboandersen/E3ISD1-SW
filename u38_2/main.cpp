@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
     std::vector<std::string> optChars {"a", "b", "o"}; //only accept -a -b -o options
     std::vector<std::string> optKeywords {"alpha", "beta", "omega"}; //only accept --alpha --beta --omega options
 
-    // Instantiate two different options objects (for demo)
+    // Instantiate two different Options-derived objects (for demo)
     OptionsChars myOptionsChars(argc, argv);
     OptionsKeywords myOptionsKeywords(argc, argv);
 
