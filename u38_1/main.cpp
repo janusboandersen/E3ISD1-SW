@@ -22,6 +22,7 @@
 #include <string>
 #include "Options.h"
 #include "OptionsChars.h"
+#include "OptionsKeywords.h"
 
 int main(int argc, char* argv[]) {
 
@@ -36,6 +37,19 @@ int main(int argc, char* argv[]) {
 
     for (int i = 0; i < myOptionsChars.valopt(); ++i) {
         std::cout << "Option " << i << ": " << myOptionsChars.getopt() << std::endl;
+    }
+
+
+    //REPEAT FOR KEYWORD STYLE OPTIONS
+
+    OptionsKeywords myOptionsKeywords(argc, argv);
+    myOptionsKeywords.setOptPossible(optKeywords);
+
+    std::cout << "Number of GIVEN KEYWORD options in command line: " << myOptionsKeywords.numopt() << std::endl;
+    std::cout << "Number of VALID KEYWORD options in command line: " << myOptionsKeywords.valopt() << std::endl;
+
+    for (int i = 0; i < myOptionsKeywords.valopt(); ++i) {
+        std::cout << "Option " << i << ": " << myOptionsKeywords.getopt() << std::endl;
     }
 
     return 0;
