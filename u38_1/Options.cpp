@@ -6,7 +6,7 @@
 #include <regex>
 #include <algorithm>
 
-//sets a vactor that defines valid options, then calls the parser for valid options
+//sets a vector that defines valid options, then calls the parser for valid options
 void Options::setOptPossible(std::vector<std::string> optPossible) {
     this->optPossible = optPossible; //set private member
     parseValidOpts(); //now parse and build set of valid options

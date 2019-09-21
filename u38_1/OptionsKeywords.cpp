@@ -8,7 +8,7 @@
 
 //parse argv for command line options
 void OptionsKeywords::parseGivenOpts() {
-    //Regex to find options like "-a"
+    //Regex to find options like "--help"
     std::regex re("^--([a-zA-Z]+)\\b"); //pattern --aaa.. .. --ZZZ.., capture is only the letters \\b is boundary
     std::smatch match;
     std::string str;

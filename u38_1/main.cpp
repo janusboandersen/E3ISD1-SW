@@ -9,10 +9,10 @@
  * and must be implemented in the subclasses.
  *
  * Ideally, we'd have one class that could handle both, but this way demonstrates inheritance.
+ *  - only the regex differs between the two subclasses, and this could just be set as a param.
  *
  * From previous weeks, the following has been refactored:
  *  - possible options are always set in vectors of strings, no longer in strings (similar behavior) among the two types.
- *  -
  *
  * Janus Bo Andersen, Sep 2019
  *
@@ -29,6 +29,8 @@ int main(int argc, char* argv[]) {
     std::vector<std::string> optChars {"a", "b", "o"}; //only accept -a -b -o options
     std::vector<std::string> optKeywords {"alpha", "beta", "omega"}; //only accept --alpha --beta --omega options
 
+    // DO WORK FOR CHAR STYLE OPTIONS
+
     OptionsChars myOptionsChars(argc, argv);
     myOptionsChars.setOptPossible(optChars);
 
@@ -40,7 +42,7 @@ int main(int argc, char* argv[]) {
     }
 
 
-    //REPEAT FOR KEYWORD STYLE OPTIONS
+    // REPEAT FOR KEYWORD STYLE OPTIONS
 
     OptionsKeywords myOptionsKeywords(argc, argv);
     myOptionsKeywords.setOptPossible(optKeywords);
