@@ -27,7 +27,7 @@ private:
 
 protected:  //make accessible in derived class
     int argc = 0;
-    char** argv;
+    char** argv = nullptr;
     int _numopt = 0; //num of options in argv
     int _valopt = 0; //num of given options that were valid
 

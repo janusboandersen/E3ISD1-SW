@@ -74,5 +74,14 @@ int main(int argc, char* argv[]) {
         std::cout << e.what() << std::endl; // Get error description
     }
 
+    // To demo exception handling, try to set options on a fresh object without any argv
+    try {
+        OptionsChars testOptions(5, nullptr); // constructor without setting argv
+        testOptions.setOptPossible(optChars);
+
+    } catch (std::runtime_error& e) {
+        std::cout << e.what() << std::endl; // Get error description
+    }
+
     return 0;
 }
